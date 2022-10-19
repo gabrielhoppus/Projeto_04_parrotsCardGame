@@ -1,0 +1,73 @@
+/*
+font-family: 'Roboto', sans-serif;
+font-family: 'Righteous', cursive;
+*/
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 47px;
+}
+
+.card_container{
+    width: 1200px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.parrot_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    width: 117px;
+    height: 146px;
+    margin-right: 44px;
+    margin-bottom: 34px;
+    cursor: pointer;
+    position: relative;
+}
+
+.parrot_back{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.parrot_front{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: none
+}
+
+
+.hidden>.parrot_back{
+    display: none;
+}
+
+.hidden>.parrot_front{
+    display: block;
+}
+
+
