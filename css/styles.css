@@ -2,6 +2,7 @@
 font-family: 'Roboto', sans-serif;
 font-family: 'Righteous', cursive;
 */
+
 body{
     width: 100%;
     height: 100%;
@@ -46,30 +47,44 @@ header{
     margin-bottom: 34px;
     cursor: pointer;
     position: relative;
+    transition: all 1300ms;
 }
 
 .parrot_back{
     width: 100px;
     height: 100px;
     position: absolute;
+    -webkit-transition: opacity 450ms ease-in;
+    -moz-transition: opacity 450ms ease-in;
+    -o-transition: opacity 450ms ease-in;
+    transition: opacity 450ms ease-in;
+    transition-delay: 100ms
 }
 
 .parrot_front{
     position: absolute;
     width: 100px;
     height: 100px;
-    display: none
+    opacity: 0;
+    -webkit-transition: opacity 450ms ease-in;
+    -moz-transition: opacity 450ms ease-in;
+    -o-transition: opacity 450ms ease-in;
+    transition: opacity 450ms ease-in;
+    transition-delay: 100ms
 }
 
+.hidden{
+    transform: rotateY(180deg);
+    background-color: lightblue;
+}
 
 .hidden>.parrot_back{
-    display: none;
+    opacity: 0;
 }
 
 .hidden>.parrot_front{
-    display: block;
+    opacity: 1;
 }
-
 
 @media only screen and (max-width: 613px){
 
@@ -84,5 +99,6 @@ header{
         height: 100%;
         display: flex;
         flex-direction: column;
+        margin-left: 20px;
     }
 }
