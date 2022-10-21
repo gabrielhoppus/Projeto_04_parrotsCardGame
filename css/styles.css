@@ -10,10 +10,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 header{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     color: #75B79E;
@@ -21,6 +23,7 @@ header{
     font-weight: 700;
     margin-top: 40px;
     margin-bottom: 47px;
+    margin-left: 270px;
 }
 
 .card_container{
@@ -52,10 +55,10 @@ header{
     width: 100px;
     height: 100px;
     position: absolute;
-    -webkit-transition: opacity 450ms ease-in;
-    -moz-transition: opacity 450ms ease-in;
-    -o-transition: opacity 450ms ease-in;
-    transition: opacity 450ms ease-in;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    -o-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
     transition-delay: 100ms
 }
 
@@ -64,10 +67,10 @@ header{
     width: 100px;
     height: 100px;
     opacity: 0;
-    -webkit-transition: opacity 450ms ease-in;
-    -moz-transition: opacity 450ms ease-in;
-    -o-transition: opacity 450ms ease-in;
-    transition: opacity 450ms ease-in;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    -o-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
     transition-delay: 100ms
 }
 
@@ -88,8 +91,32 @@ header{
 
 .disable{
     pointer-events:none;
-    opacity: 0.4;
+    opacity: 0.8;
 }
+
+.time_container{
+    width: 70px;
+    height: 100px;
+    background-color: #A7E9AF;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.time{
+    color: #183059;
+    font-size: 66px;
+}
+
+.label{
+    font-weight: 700;
+    color: #183059;
+    font-size: 17px;
+    margin-left: -13px;
+    margin-top: 10px;
+}
+
 
 @media only screen and (max-width: 613px){
 
@@ -97,6 +124,11 @@ header{
         width: 335px;
         font-size: 36px;
         text-align: center;
+        margin-left: 80px;
+    }
+
+    .time_container{
+        margin-left: 50px;
     }
 
     .card_container{

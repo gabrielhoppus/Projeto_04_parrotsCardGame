@@ -7,13 +7,16 @@ let card2 = ""
 let played = 0
 let order = 1
 let clickCount = 0
+let endCount = 0
+let cards = 0
+let time = 0;
 
 function randomizeList(){
     return Math.random() - 0.5;
 }
 
 function addCard(){
-    let cards = 
+    cards = 
         Number(prompt("Quantas cartas você quer jogar? (entre 4 e 14, número par)"));
     let i = 0
     image = 1
@@ -77,8 +80,29 @@ function checkCard(){
             card1.classList.remove("selected1")
             card2.classList.remove("selected2")
         }, 1000)
+        endCount += 2
         selected_list = []
+    }
+    if (endCount === cards){
+        endGame()
     }
 }
 
+function endGame(){
+    setTimeout(() =>{
+        alert(`Você ganhou em ${played} jogadas em ${time} segundos!`)
+    }, 1500)
+}
 
+function timeCount() {
+    add = setInterval(timeProgression, 1000);
+
+    function timeProgression() {
+      time++;
+      const div = document.querySelector(".time");
+      div.innerHTML = time;
+      if (time == 0) {
+        clearInterval(add);
+      }
+    }
+  }

@@ -18,11 +18,18 @@
     "./assets/parrot_icon.svg" 
             type = "image/x-icon">
 </head>
-<body onload="addCard()">
+<body onload="addCard(), timeCount()">
     <div class="container">
         <header>
             PARROT CARD GAME
+            <div class="time_container">
+                <div class="time">
+                  0
+                </div>
+                <div class="label">Segundo(s)</div>
+            </div> 
         </header>
+     
         <div class="card_container">
         </div>
     </div>
