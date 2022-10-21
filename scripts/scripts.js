@@ -1,4 +1,5 @@
 const div = document.querySelector(".card_container");
+let image_list = [`1`,`2`,`3`,`4`,`5`,`6`,`7`]
 let card_list = []
 let image = 0
 let selected_list = []
@@ -19,13 +20,13 @@ function addCard(){
     cards = 
         Number(prompt("Quantas cartas você quer jogar? (entre 4 e 14, número par)"));
     let i = 0
-    image = 1
     if (cards >= 4 && cards <= 14 && cards % 2 == 0){
+        image_list.sort(randomizeList)
         while (i < cards){
             let card = 
                     `<div id="${Math.floor(order)}" onclick="turnCard(this)" class="parrot_card">
                         <img class="parrot_back" src="./assets/back.png">
-                        <img class="parrot_front hidden" src="./assets/${Math.floor(image)}.gif">
+                        <img class="parrot_front hidden" src="./assets/${image_list[Math.floor(image)]}.gif">
                     </div>`
             card_list.push(card)
             i++
@@ -89,9 +90,23 @@ function checkCard(){
 }
 
 function endGame(){
+    let restart = ""
     setTimeout(() =>{
         alert(`Você ganhou em ${played} jogadas em ${time} segundos!`)
+        restartGame()
     }, 1500)
+}
+
+function restartGame(){
+    restart = prompt("Você gostaria de reiniciar a partida? (sim ou não)")
+    clearInterval(add)
+    if (restart === "sim"){
+        location.reload()
+    }else if (restart === "não"){
+        return;
+    }else{
+        return restartGame();
+    }
 }
 
 function timeCount() {
@@ -105,4 +120,4 @@ function timeCount() {
         clearInterval(add);
       }
     }
-  }
+}
