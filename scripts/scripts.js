@@ -1,9 +1,12 @@
 const div = document.querySelector(".card_container");
 let card_list = []
-
-function turnCard(parrot){
-    parrot.classList.toggle("hidden")
-}
+let image = 0
+let selected_list = []
+let card1 = ""
+let card2 = ""
+let played = 0
+let order = 1
+let clickCount = 0
 
 function randomizeList(){
     return Math.random() - 0.5;
@@ -13,17 +16,18 @@ function addCard(){
     let cards = 
         Number(prompt("Quantas cartas você quer jogar? (entre 4 e 14, número par)"));
     let i = 0
-    let image = 1
+    image = 1
     if (cards >= 4 && cards <= 14 && cards % 2 == 0){
         while (i < cards){
             let card = 
-                    `<div onclick="turnCard(this)" class="parrot_card">
+                    `<div id="${Math.floor(order)}" onclick="turnCard(this)" class="parrot_card">
                         <img class="parrot_back" src="./assets/back.png">
                         <img class="parrot_front hidden" src="./assets/${Math.floor(image)}.gif">
                     </div>`
             card_list.push(card)
             i++
             image += 0.5
+            order++
         } 
     }else{
         return addCard()
@@ -34,3 +38,47 @@ function addCard(){
     }
 
 }
+
+function turnCard(parrot){
+
+    if (clickCount % 2 == 0){
+        parrot.classList.add("hidden")
+        parrot.classList.add(`selected1`)
+        selected_list.push(parrot)
+    }else{
+        parrot.classList.add("hidden")
+        parrot.classList.add(`selected2`)
+        selected_list.push(parrot)
+    }
+
+        clickCount ++
+    checkCard()
+}
+
+function checkCard(){
+    card1 = document.querySelector(".selected1")
+    card2 = document.querySelector(".selected2")
+    if(selected_list.length == 2 && card1.innerHTML !== card2.innerHTML){
+        played += 1;
+        div.classList.add("disable")
+        setTimeout(() =>{
+            card1.classList.remove("hidden")
+            card2.classList.remove("hidden")
+            card1.classList.remove("selected1")
+            card2.classList.remove("selected2")
+            div.classList.remove("disable")
+        },1000)
+        selected_list = []
+    }else if (selected_list.length == 2 && card1.innerHTML === card2.innerHTML){
+        played += 1;
+        div.classList.add("disable")
+        setTimeout(() =>{
+            div.classList.remove("disable")
+            card1.classList.remove("selected1")
+            card2.classList.remove("selected2")
+        }, 1000)
+        selected_list = []
+    }
+}
+
+

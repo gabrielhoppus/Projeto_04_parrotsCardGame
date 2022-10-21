@@ -1,8 +1,6 @@
 /*
 font-family: 'Roboto', sans-serif;
-font-family: 'Righteous', cursive;
 */
-
 body{
     width: 100%;
     height: 100%;
@@ -76,6 +74,8 @@ header{
 .hidden{
     transform: rotateY(180deg);
     background-color: lightblue;
+    cursor: auto;
+    pointer-events:none;
 }
 
 .hidden>.parrot_back{
@@ -84,6 +84,11 @@ header{
 
 .hidden>.parrot_front{
     opacity: 1;
+}
+
+.disable{
+    pointer-events:none;
+    opacity: 0.4;
 }
 
 @media only screen and (max-width: 613px){
