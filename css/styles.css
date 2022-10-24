@@ -23,7 +23,6 @@ header{
     font-weight: 700;
     margin-top: 40px;
     margin-bottom: 47px;
-    margin-left: 270px;
 }
 
 .card_container{
@@ -33,6 +32,7 @@ header{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-left: 44px;
 }
 
 .parrot_card{
@@ -100,8 +100,11 @@ header{
     background-color: #A7E9AF;
     padding: 20px;
     border-radius: 5px;
-    margin: 20px auto;
+    margin: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 
 .time{
